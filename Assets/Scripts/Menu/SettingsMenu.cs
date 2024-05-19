@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class SettingsMenu : MonoBehaviour
 {
+    [SerializeField]
     public IPanel SettingsWindow;
     bool settingsMenuActive = false;
 

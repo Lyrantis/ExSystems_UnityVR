@@ -9,6 +9,7 @@ TagManager:
   - Climbable
   - Key
   - PlayerProjectile
+  - Pipe
   layers:
   - Default
   - TransparentFX
