@@ -8,6 +8,7 @@ TagManager:
   - Ammo
   - Climbable
   - Key
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
