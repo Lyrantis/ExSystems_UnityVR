@@ -17,14 +17,4 @@ public class Target : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().velocity = velocity;
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("PlayerProjectile"))
-        {
-            //Add Player Points, 
-            Destroy(this.gameObject);
-            Destroy(this);
-        }
-    }
 }

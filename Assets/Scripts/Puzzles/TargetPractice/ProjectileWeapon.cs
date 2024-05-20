@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class ProjectileWeapon : MonoBehaviour
 {
     [SerializeField]
     public GameObject projectileToSpawn;
-    
+
+    [SerializeField]
+    public GameObject projectileSpawnPoint;
+
     [SerializeField]
     public float delayBetweenShots = 0.2f;
 
@@ -24,7 +28,8 @@ public class ProjectileWeapon : MonoBehaviour
     
     private void Fire()
     {
-        Instantiate(projectileToSpawn);
+        GameObject temp = Instantiate(projectileToSpawn, projectileSpawnPoint.transform);
+        temp.transform.parent = null;
     }
     
     IEnumerator AttackDelay()
