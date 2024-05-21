@@ -6,22 +6,26 @@ public class TargetScoreTracker : MonoBehaviour
 {
     private int Score = 0;
     public int ScoreToReach = 0;
-    public void TargetDestroyed(int TargetPoints)
+    public void AddScore(int TargetPoints)
     {
         Score += TargetPoints;
-        CheckPointsAgainstTarget();
+
     }
 
-    public void DeductPoints(int PointsToDeduct)
+    public void Start()
     {
-        Score -= PointsToDeduct;
+        Score = 0;
     }
 
-    public void CheckPointsAgainstTarget()
+    public bool EndGame()
     {
         if (Score >= ScoreToReach)
         {
-            //End Game, reveal clue/puzzle component
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

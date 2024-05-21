@@ -10,14 +10,14 @@ public class Projectile : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody>().velocity = gameObject.transform.forward * speed;
         Physics.IgnoreCollision(GetComponent<Collider>(), transform.parent.transform.parent.gameObject.GetComponent<Collider>());
-        
+        gameObject.transform.parent = null;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Target"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Target>().OnHit();
         }
         Destroy(gameObject);
         Destroy(this);

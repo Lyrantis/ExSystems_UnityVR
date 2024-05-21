@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class TargetMiniGameManager : MonoBehaviour
 {
+    private TargetScoreTracker scoreTracker;
+    private TargetSpawner spawner;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoreTracker = GetComponent<TargetScoreTracker>();
+        spawner = GetComponent<TargetSpawner>();
+        spawner.OnPointsEarned += AddPoints;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AddPoints(int points)
     {
-        
+        scoreTracker.AddScore(points);
+    }
+
+    void StartGame()
+    {
+
+    }
+
+    void EndGame()
+    {
+
     }
 }

@@ -24,9 +24,15 @@ public class TargetSpawner : MonoBehaviour
 
     public event Action<int> OnPointsEarned;
 
+    IEnumerator WaitBetweenTargetSpawn()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.5f));
+        SpawnTarget();
+    }
+
     public void SpawnTarget()
     {
-        float movingOdds = UnityEngine.Random.Range(0f, 1f);
+        float movingOdds = UnityEngine.Random.Range(0.0f, 1.0f);
         GameObject temp;
 
         if (movingOdds <= movingChance)
@@ -41,10 +47,27 @@ public class TargetSpawner : MonoBehaviour
 
         activeTargets.Add(temp);
         temp.GetComponent<Target>().OnDestroyed += OnTargetShot;
+        StartCoroutine(WaitBetweenTargetSpawn());
     }
 
     private void OnTargetShot(GameObject targetShot, int points)
     {
+        activeTargets.Remove(targetShot);
         OnPointsEarned.Invoke(points);
+    }
+
+    public void StartGame()
+    {
+        SpawnTarget();
+    }
+
+    public void EndGame()
+    {
+        StopAllCoroutines();
+
+        foreach (GameObject target in activeTargets) 
+        {
+            Destroy(target);
+        }
     }
 }

@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private List<GameRule> rules;
-    private int ruleNum;
+    private List<Puzzle> puzzles = new List<Puzzle>();
+
+    private string endCombination;
+
+    private int puzzlesToComplete;
+    private int puzzlesCompleted;
+
+    [SerializeField]
+    public float Timer = 180.0f;
+
 
     private void Start()
     {
-        GameRule[] newrules = gameObject.GetComponents<GameRule>();
+        Puzzle[] puzzlesInWorld = FindObjectsOfType<Puzzle>();
 
-        foreach (GameRule rule in newrules)
-        {
-            rules.Add(rule);
-            rule.OnCompleted.AddListener(GameRuleCompleted);
+        foreach (Puzzle puzzle in puzzlesInWorld) 
+        { 
+            puzzles.Add(puzzle);
+            puzzle.OnCompleted += PuzzleSolved;
         }
-
-        ruleNum = rules.Count;
+        puzzlesToComplete = puzzles.Count;
+        endCombination = Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString();
     }
 
-    private void GameRuleCompleted(GameRule rule, int points)
+    private void PuzzleSolved(Puzzle puzzleCompleted)
     {
-        ruleNum--;
-        rules.Remove(rule);
+        puzzles.Remove(puzzleCompleted);
+        puzzlesCompleted++;
 
-        if (ruleNum == 0)
-        {
-            //Spawn Key for final door 
-        }
+
     }
 }
