@@ -29,7 +29,6 @@ public class ProjectileWeapon : MonoBehaviour
     private void Fire()
     {
         GameObject temp = Instantiate(projectileToSpawn, projectileSpawnPoint.transform);
-        temp.transform.parent = null;
     }
     
     IEnumerator AttackDelay()

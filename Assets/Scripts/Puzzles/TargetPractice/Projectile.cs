@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         gameObject.GetComponent<Rigidbody>().velocity = gameObject.transform.forward * speed;
+        Physics.IgnoreCollision(GetComponent<Collider>(), transform.parent.transform.parent.gameObject.GetComponent<Collider>());
+        
     }
 
     private void OnCollisionEnter(Collision collision)
