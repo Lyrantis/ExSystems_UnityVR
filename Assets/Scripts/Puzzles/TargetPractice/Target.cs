@@ -1,20 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    private bool IsMoving = false;
     private int ScoreValue = 1;
+    public event Action<GameObject, int> OnDestroyed;
 
-    public void Init(bool shouldMove, int points, Vector3 velocity)
+    public void Init(int points)
     {
-        IsMoving = shouldMove;
         ScoreValue = points;
+        transform.parent = null;
 
-        if (IsMoving)
-        {
-            gameObject.GetComponent<Rigidbody>().velocity = velocity;
-        }
+    }
+
+    public void OnHit()
+    {
+        OnDestroyed.Invoke(gameObject, ScoreValue);
+        Destroy(gameObject);
     }
 }
