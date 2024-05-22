@@ -9,12 +9,12 @@ public class Puzzle : MonoBehaviour
 
     public event Action<Puzzle> OnCompleted;
 
-    private void OnPuzzleCompleted()
+    public void OnPuzzleCompleted()
     {
         if (!isCompleted)
         {
             isCompleted = true;
-            OnCompleted.Invoke(this);
+            OnCompleted?.Invoke(this);
         }   
     }
 }

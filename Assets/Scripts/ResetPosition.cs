@@ -15,7 +15,6 @@ public class ResetPosition : MonoBehaviour
 
     public void ResetPositionToStart()
     {
-        Debug.Log("Resetting");
         gameObject.transform.position = m_startPosition;
         gameObject.transform.rotation = m_startRotation;
     }

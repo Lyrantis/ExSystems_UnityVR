@@ -5,25 +5,29 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    [SerializeField]
     private int ScoreValue = 1;
 
-    [SerializeField]
-    public float timeBeforeDespawn = 5.0f;
 
     public event Action<GameObject, int> OnDestroyed;
 
-    IEnumerator DespawnSelf()
+    private bool HasBeenHit = false;
+
+    IEnumerator DespawnSelf(float time )
     {
-        yield return new WaitForSeconds(timeBeforeDespawn);
+        yield return new WaitForSeconds(time);
         OnDestroyed.Invoke(gameObject, -1);
         Destroy(gameObject);
     }
 
-    public void Init(int points)
+    private void Start()
     {
-        ScoreValue = points;
-        transform.parent = null;
-        StartCoroutine(DespawnSelf());
+    }
+
+    public void Init(float time)
+    {
+
+        StartCoroutine(DespawnSelf(time));
     }
 
     public void OnHit()
@@ -36,5 +40,15 @@ public class Target : MonoBehaviour
     private void OnDestroy()
     {
         StopAllCoroutines();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "PlayerProjectile" && !HasBeenHit)
+        {
+            OnHit();
+            HasBeenHit = true;
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -70,6 +70,16 @@ public class PipeWall : MonoBehaviour
 
     private void GeneratePuzzle()
     {
+        List<Node> OpenList = new List<Node>();
+        List<Node> ClosedList = new List<Node>();
+        Node current = grid[0][0];
+        Node end = grid[PuzzleHeight][PuzzleWidth];
+        bool pathFound = false;
+
+        while (!pathFound)
+        {
+
+        }
         //Start at [0][0]
         //End at [Height][Width]
         //A* pathfindng

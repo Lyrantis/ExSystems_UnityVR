@@ -1,12 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TargetMiniGameManager : MonoBehaviour
 {
     private TargetScoreTracker scoreTracker;
     private TargetSpawner spawner;
 
+    [SerializeField]
+    Button StartButton;
+
+    [SerializeField]
+    TMP_Text timerText;
+
+    [SerializeField]
+    int timeLimit = 60;
+
+    IEnumerator UpdateTimer()
+    {
+        for (int i = 0; i < timeLimit + 1; i++)
+        {
+            yield return new WaitForSeconds(1.0f);
+            timerText.text = "Time : " + (timeLimit - i).ToString();
+        }
+        EndGame();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +41,30 @@ public class TargetMiniGameManager : MonoBehaviour
         scoreTracker.AddScore(points);
     }
 
-    void StartGame()
+    public void StartGame()
     {
+        spawner.StartGame();
+        scoreTracker.Reset();
 
+        StartCoroutine(UpdateTimer());
     }
 
     void EndGame()
     {
+        
+        spawner.EndGame();
+        if (scoreTracker.EndGame())
+        {
 
+            Puzzle puzzle = GetComponent<Puzzle>();
+            if (puzzle != null)
+            {
+                puzzle.OnPuzzleCompleted();
+            }
+        }
+        else
+        {
+            StartButton.interactable = true;
+        }
     }
 }

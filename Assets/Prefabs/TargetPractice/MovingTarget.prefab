@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 914452951167852597}
   - component: {fileID: -5455968418652111896}
   m_Layer: 0
-  m_Name: Target
+  m_Name: MovingTarget
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51cdb16ef0aeaf94eaa0871e05a4419c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreValue: 1
-  timeBeforeDespawn: 5
+  ScoreValue: 3
+  timeBeforeDespawn: 3
 --- !u!65 &914452951167852597
 BoxCollider:
   m_ObjectHideFlags: 0

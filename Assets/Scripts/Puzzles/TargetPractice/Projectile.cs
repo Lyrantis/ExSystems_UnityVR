@@ -15,11 +15,8 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Target"))
-        {
-            collision.gameObject.GetComponent<Target>().OnHit();
-        }
+        if (collision.gameObject.tag == "Bar") return;
         Destroy(gameObject);
-        Destroy(this);
     }
+
 }
