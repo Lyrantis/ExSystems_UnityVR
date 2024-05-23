@@ -53,21 +53,22 @@ public class Pipe : MonoBehaviour
         }
     }
     
-    public bool CheckForStartConnection(Pipe parent)
+    public bool CheckForStartConnection(List<Pipe> alreadyChecked)
     {
         if (connections != null)
         {
             foreach (Pipe pipe in connections)
             {
-                if (pipe != parent)
+                if (!alreadyChecked.Contains(pipe))
                 {
+                    alreadyChecked.Add(pipe);
                     if (pipe.isStart)
                     {
                         return true;
                     }
                     else
                     {
-                        if (pipe.CheckForStartConnection(this))
+                        if (pipe.CheckForStartConnection(alreadyChecked))
                         {
                             return true;
                         }

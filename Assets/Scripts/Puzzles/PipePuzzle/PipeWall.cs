@@ -304,7 +304,8 @@ public class PipeWall : MonoBehaviour
 
     private void CheckForPath()
     {
-         if (endPipeInstance.CheckForStartConnection(null))
+        List<Pipe> pipesChecked = new List<Pipe>();
+         if (endPipeInstance.CheckForStartConnection(pipesChecked))
         {
             gameObject.GetComponent<Puzzle>().OnPuzzleCompleted();
             Destroy(endPipeInstance.gameObject);
