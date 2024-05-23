@@ -51,6 +51,12 @@ public class PipeWall : MonoBehaviour
     public int PuzzleHeight = 5;
 
     [SerializeField]
+    public GameObject startPipe;
+
+    [SerializeField]
+    public GameObject endPipe;
+
+    [SerializeField]
     public GameObject straightPipe;
     
     [SerializeField]
@@ -63,6 +69,8 @@ public class PipeWall : MonoBehaviour
     public GameObject XPipe;
 
     private List<List<Node>> grid = new List<List<Node>>();
+
+    private Pipe endPipeInstance;
 
     private void GridSetup()
     {
@@ -104,7 +112,7 @@ public class PipeWall : MonoBehaviour
                 }
                 for (int count = 0; count < grid[i][j].neighbours.Count; count++)
                 {
-                    grid[i][j].neighbourCosts.Add(UnityEngine.Random.Range(1, 4));
+                    grid[i][j].neighbourCosts.Add(UnityEngine.Random.Range(1, 10));
                 }
             }
         }
@@ -157,44 +165,44 @@ public class PipeWall : MonoBehaviour
                 {
                     for (int x = 0; x < pipeGridOutput[y].Count; x++)
                     {
-                        if ((x == y & y == 0) || (x == y & y == 4))
+                        if (x == y & y == 0)
                         {
+                            Instantiate(startPipe, puzzleStartCorner.transform.position, Quaternion.identity, null);
+                            continue;
+                        }
+                        else if (x == y & y == PuzzleHeight - 1)
+                        {
+                            endPipeInstance = Instantiate(endPipe, puzzleStartCorner.transform.position + new Vector3(-1.0f * 0.3f * x, -1.0f * 0.3f * y, 0.0f), Quaternion.identity, null).GetComponent<Pipe>();
                             continue;
                         }
                         GameObject temp = new GameObject();
 
                         if (pipeGridOutput[y][x] == 0)
                         {
-                            int prefabToSpawn = UnityEngine.Random.Range(1, 5);
-                            
-                            switch (prefabToSpawn)
-                            {
-                                case 0:
-                                    Debug.Log("Error: 0");
-                                    break;
-                                case 1:
-                                    temp = straightPipe;
-                                    break;
-                                case 2:
-                                    temp = LPipe;
-                                    break;
-                                case 3:
-                                    temp = TPipe;
-                                    break;
-                                case 4:
-                                    temp = XPipe;
-                                    break;
-                                default:
-                                    Debug.Log("Unrecognised Symbol");
-                                    break;
+                            int prefabToSpawn = UnityEngine.Random.Range(1, 100);
 
+                            if (prefabToSpawn <= 5)
+                            {
+                                temp = XPipe;
+                            }
+                            else if (prefabToSpawn <= 10)
+                            {
+                                temp = TPipe;
+                            }
+                            else if (prefabToSpawn <= 55)
+                            {
+                                temp = straightPipe;
+                            }
+                            else
+                            {
+                                temp = LPipe;
                             }
                         }
                         else
                         {
                             float randomChance = UnityEngine.Random.Range(0.0f, 1.0f);
 
-                            if (randomChance < 0.2f)
+                            if (randomChance < 0.05f)
                             {
                                 int prefabToSpawn = UnityEngine.Random.Range(3, 5);
 
@@ -228,7 +236,8 @@ public class PipeWall : MonoBehaviour
                             }
                         }
                         Vector3 offset = new Vector3(-1.0f * 0.3f * x, -1.0f * 0.3f * y, 0.0f);
-                        Instantiate(temp, puzzleStartCorner.transform.position + offset, Quaternion.identity, null);
+                        temp = Instantiate(temp, puzzleStartCorner.transform.position + offset, Quaternion.identity, null);
+                        temp.GetComponent<Pipe>().OnConnectionGained += CheckForPath;
                     }
                 }
             }
@@ -291,5 +300,14 @@ public class PipeWall : MonoBehaviour
     private void Start()
     {
         GeneratePuzzle();
+    }
+
+    private void CheckForPath()
+    {
+         if (endPipeInstance.CheckForStartConnection(null))
+        {
+            gameObject.GetComponent<Puzzle>().OnPuzzleCompleted();
+            Destroy(endPipeInstance.gameObject);
+        }
     }
 }

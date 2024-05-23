@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 7068149525892103751}
   m_Layer: 0
   m_Name: Bar1 (3)
-  m_TagString: Untagged
+  m_TagString: Bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -819,11 +819,11 @@ Transform:
   - {fileID: 3278907806753582562}
   - {fileID: 1707681852371551962}
   - {fileID: 2208185084285758502}
-  - {fileID: 6030705004536746723}
+  - {fileID: 7680159670043100262}
   - {fileID: 1731111695044649818}
   - {fileID: 7015427702319810723}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6158349890487931768
 MonoBehaviour:
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ee392237066564aa86fdf553fd704b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreToReach: 2
+  ScoreToReach: 10
   scoreText: {fileID: 3575835999903225986}
 --- !u!114 &3456232009020164610
 MonoBehaviour:
@@ -853,7 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartButton: {fileID: 1636934886043022782}
   timerText: {fileID: 7084856755896835076}
-  timeLimit: 10
+  timeLimit: 60
 --- !u!114 &8194085825279205477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4339518850957368535, guid: 43ae790253ca3ee42b08d94110a7073f, type: 3}
-  movingTarget: {fileID: 4339518850957368535, guid: 43ae790253ca3ee42b08d94110a7073f, type: 3}
+  movingTarget: {fileID: 4339518850957368535, guid: 991b12093e8b1da4ea348b92a08e4114, type: 3}
   targetSpawns:
   - {fileID: 4547840077167460091}
   - {fileID: 8344704660827465215}
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 2620626146511554051}
   m_Layer: 0
   m_Name: Bar1
-  m_TagString: Untagged
+  m_TagString: Bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1260,7 +1260,7 @@ GameObject:
   - component: {fileID: 3668287883706534600}
   m_Layer: 0
   m_Name: Bar1 (1)
-  m_TagString: Untagged
+  m_TagString: Bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3506,7 +3506,7 @@ GameObject:
   - component: {fileID: 560213506433377741}
   m_Layer: 0
   m_Name: Bar1 (2)
-  m_TagString: Untagged
+  m_TagString: Bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5383,7 +5383,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f76fdcecef932f48b004412a9226831, type: 3}
---- !u!4 &6030705004536746723 stripped
+--- !u!4 &7680159670043100262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 283119515881754504, guid: 8f76fdcecef932f48b004412a9226831, type: 3}
   m_PrefabInstance: {fileID: 7600034602491546606}

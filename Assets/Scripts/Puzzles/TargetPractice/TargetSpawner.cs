@@ -17,6 +17,9 @@ public class TargetSpawner : MonoBehaviour
     [SerializeField]
     float movingChance = -0.2f;
 
+    [SerializeField]
+    int maxTargets = 10;
+
     private List<GameObject> activeTargets = new List<GameObject>();
 
     public event Action<int> OnPointsEarned;
@@ -29,39 +32,43 @@ public class TargetSpawner : MonoBehaviour
 
     public void SpawnTarget()
     {
-        float movingOdds = UnityEngine.Random.Range(0.0f, 1.0f);
-        GameObject temp;
-
-        int randomIndex = UnityEngine.Random.Range(0, targetSpawns.Count - 1);
-        if (movingOdds <= movingChance)
+        if ( activeTargets.Count < maxTargets )
         {
-            temp = Instantiate(movingTarget, targetSpawns[randomIndex].transform.position, targetSpawns[randomIndex].transform.rotation, null);
-            if (randomIndex % 2 == 0)
+            float movingOdds = UnityEngine.Random.Range(0.0f, 1.0f);
+            GameObject temp;
+
+            int randomIndex = UnityEngine.Random.Range(0, targetSpawns.Count - 1);
+            if (movingOdds <= movingChance)
             {
-                temp.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, -5.0f);
+                temp = Instantiate(movingTarget, targetSpawns[randomIndex].transform.position, targetSpawns[randomIndex].transform.rotation, null);
+                if (randomIndex % 2 == 0)
+                {
+                    temp.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, -5.0f);
+                }
+                else
+                {
+                    temp.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 5.0f);
+                }
+
+                temp.GetComponent<Target>().Init(Mathf.Abs(targetSpawns[randomIndex].transform.position.z - targetSpawns[randomIndex + 1].transform.position.z) / temp.GetComponent<Rigidbody>().velocity.magnitude);
+
+
             }
             else
             {
-                temp.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 5.0f);            }
-
-            temp.GetComponent<Target>().Init(Mathf.Abs(targetSpawns[randomIndex].transform.position.z - targetSpawns[randomIndex + 1].transform.position.z) / temp.GetComponent<Rigidbody>().velocity.magnitude);
-
-
-        }
-        else
-        {
-            if (randomIndex % 2 != 0)
-            {
-                randomIndex--;
+                if (randomIndex % 2 != 0)
+                {
+                    randomIndex--;
+                }
+                float offset = UnityEngine.Random.Range(0.0f, targetSpawns[randomIndex].transform.position.z - targetSpawns[randomIndex + 1].transform.position.z);
+                Vector3 spawnPos = targetSpawns[randomIndex].transform.position;
+                spawnPos.z -= offset;
+                temp = Instantiate(target, spawnPos, targetSpawns[randomIndex].transform.rotation, null);
             }
-            float offset = UnityEngine.Random.Range(0.0f, targetSpawns[randomIndex].transform.position.z - targetSpawns[randomIndex + 1].transform.position.z);
-            Vector3 spawnPos = targetSpawns[randomIndex].transform.position;
-            spawnPos.z -= offset;
-            temp = Instantiate(target, spawnPos, targetSpawns[randomIndex].transform.rotation, null);
-        }
 
-        activeTargets.Add(temp);
-        temp.GetComponent<Target>().OnDestroyed += OnTargetShot;
+            activeTargets.Add(temp);
+            temp.GetComponent<Target>().OnDestroyed += OnTargetShot;
+        } 
         StartCoroutine(WaitBetweenTargetSpawn());
     }
 

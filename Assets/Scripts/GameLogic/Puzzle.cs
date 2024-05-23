@@ -11,6 +11,7 @@ public class Puzzle : MonoBehaviour
 
     public void OnPuzzleCompleted()
     {
+        Debug.Log("YIPPEE!!!!!!!");
         if (!isCompleted)
         {
             isCompleted = true;

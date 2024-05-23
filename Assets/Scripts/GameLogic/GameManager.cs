@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
         puzzles.Remove(puzzleCompleted);
         puzzlesCompleted++;
 
+        if (puzzlesCompleted >= puzzlesToComplete)
+        {
+            Debug.Log("You win! Or something");
+        }
 
     }
 }
