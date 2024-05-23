@@ -55,12 +55,13 @@ public class TargetMiniGameManager : MonoBehaviour
         spawner.EndGame();
         if (scoreTracker.EndGame())
         {
-
             Puzzle puzzle = GetComponent<Puzzle>();
             if (puzzle != null)
             {
                 puzzle.OnPuzzleCompleted();
             }
+            StartButton.GetComponentInChildren<TMP_Text>().text = "Completed!";
+            StartButton.image.color = Color.yellow;
         }
         else
         {

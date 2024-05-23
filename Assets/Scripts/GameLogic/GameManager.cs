@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private List<Puzzle> puzzles = new List<Puzzle>();
 
-    private string endCombination;
+    public string endCombination;
+
+    [SerializeField]
+    TMP_Text puzzleTrackingText;
 
     private int puzzlesToComplete;
     private int puzzlesCompleted;
@@ -26,12 +30,16 @@ public class GameManager : MonoBehaviour
         }
         puzzlesToComplete = puzzles.Count;
         endCombination = Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString();
+
+        puzzleTrackingText.text = "Puzzles Solved: " + puzzlesCompleted + "/" + puzzlesToComplete;
     }
 
     private void PuzzleSolved(Puzzle puzzleCompleted)
     {
         puzzles.Remove(puzzleCompleted);
         puzzlesCompleted++;
+
+        puzzleTrackingText.text = "Puzzles Solved: " + puzzlesCompleted + "/" + puzzlesToComplete;
 
         if (puzzlesCompleted >= puzzlesToComplete)
         {

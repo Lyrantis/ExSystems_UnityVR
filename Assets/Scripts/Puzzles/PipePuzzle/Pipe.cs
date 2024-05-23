@@ -45,7 +45,6 @@ public class Pipe : MonoBehaviour
             }
             if (connections != null)
             {
-                Debug.Log("Connnection Added");
                 connections.Add(currentParent.GetComponent<Pipe>());
             }
 
@@ -83,7 +82,6 @@ public class Pipe : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pipe"))
         {
-            Debug.Log("ConnectionRemoved");
             connections.Remove(collision.gameObject.GetComponent<Pipe>());
         }
     }

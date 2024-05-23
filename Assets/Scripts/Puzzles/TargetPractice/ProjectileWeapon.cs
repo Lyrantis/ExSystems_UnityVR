@@ -21,6 +21,7 @@ public class ProjectileWeapon : MonoBehaviour
         if (canFire)
         {
             Fire();
+            GetComponent<AudioSource>().Play();
             canFire = false;
             StartCoroutine(AttackDelay());
         }
