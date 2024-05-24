@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4029645485179861695}
   - component: {fileID: -4356279106127255862}
   - component: {fileID: -5230509142493710542}
+  - component: {fileID: -1446921362567543397}
   m_Layer: 0
   m_Name: Fuze
   m_TagString: Fuze
@@ -252,6 +253,18 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &-1446921362567543397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679697727580066599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f2f658073e4974d800c553fe797db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1536178886108341894
 GameObject:
   m_ObjectHideFlags: 0

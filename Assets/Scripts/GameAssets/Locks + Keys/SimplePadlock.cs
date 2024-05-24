@@ -16,13 +16,13 @@ public class SimplePadlock : MonoBehaviour
             objectToLock.GetComponent<Collider>().enabled = false;
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Key"))
+        if (other.CompareTag("Key"))
         {
-            if (collision.gameObject.GetComponent<SimpleKey>().ID == ID)
+            if (other.GetComponent<SimpleKey>().ID == ID)
             {
-                Unlock(collision.gameObject);
+                Unlock(other.gameObject);
             }
         }
     }

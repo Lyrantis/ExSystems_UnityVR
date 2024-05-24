@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1.1974143, y: 2.2476938, z: 0.47421846}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2535528086323770848}
+  m_Father: {fileID: 4623750919294267943}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1939897719268922066
@@ -99,7 +99,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -115,7 +115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 29d9993f40d8f1b4f95e04db44e303d0, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29d9993f40d8f1b4f95e04db44e303d0, type: 3}
       propertyPath: m_LocalScale.x
@@ -175,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 93a0d11ce57b4284e9e6943c079dbe6d, type: 2}
     - target: {fileID: 919132149155446097, guid: 29d9993f40d8f1b4f95e04db44e303d0, type: 3}
       propertyPath: m_Name
-      value: Padlock (1) Variant
+      value: Padlock
       objectReference: {fileID: 0}
     - target: {fileID: 3383829443203256844, guid: 29d9993f40d8f1b4f95e04db44e303d0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -191,10 +191,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 29d9993f40d8f1b4f95e04db44e303d0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3527363426122695861}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 29d9993f40d8f1b4f95e04db44e303d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1207856302763831683}
   m_SourcePrefab: {fileID: 100100000, guid: 29d9993f40d8f1b4f95e04db44e303d0, type: 3}
---- !u!4 &2535528086323770848 stripped
+--- !u!4 &4623750919294267943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 29d9993f40d8f1b4f95e04db44e303d0, type: 3}
   m_PrefabInstance: {fileID: 5161236824346514892}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5431636207226054813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 29d9993f40d8f1b4f95e04db44e303d0, type: 3}
+  m_PrefabInstance: {fileID: 5161236824346514892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1207856302763831683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5431636207226054813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a407cac66c4abe646a5a549a9480d080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  objectToLock: {fileID: 0}

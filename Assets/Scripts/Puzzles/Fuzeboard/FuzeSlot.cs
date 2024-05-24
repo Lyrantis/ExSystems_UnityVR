@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class FuzeSlot : MonoBehaviour
 {
@@ -12,20 +13,15 @@ public class FuzeSlot : MonoBehaviour
 
     public event Action OnConnected;
 
-    private void OnCollisionEnter(Collision collision)
+    public void CheckFuse()
     {
-        if (!fuzeConnected)
+        Fuze fuze = GetComponentInChildren<XRExclusiveSocket>().selectTarget.gameObject.GetComponent<Fuze>();
+
+        if (fuze.ID == ID)
         {
-            if (collision.gameObject.CompareTag("Fuze"))
-            {
-                if (ID == collision.gameObject.GetComponent<Fuze>().ID)
-                {
-                    fuzeConnected = true;
-                    collision.collider.enabled = false;
-                    gameObject.transform.GetChild(1).GetComponent<Collider>().enabled = false;
-                    OnConnected?.Invoke();
-                }
-            }
+            fuze.gameObject.GetComponent<XRGrabInteractable>().enabled = false;
+            OnConnected.Invoke();
+            Destroy(this);
         }
     }
 }

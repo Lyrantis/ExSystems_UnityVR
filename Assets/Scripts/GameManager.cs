@@ -25,10 +25,13 @@ public class GameManager : MonoBehaviour
     private TMP_Text timeTrackingText;
 
     private int puzzlesToComplete;
-    private int puzzlesCompleted;
+    private int puzzlesCompleted = 0;
 
     [SerializeField]
     public float Timer = 180.0f;
+
+    [SerializeField]
+    GameObject endBlock;
 
     IEnumerator UpdateTimer()
     {
@@ -39,6 +42,10 @@ public class GameManager : MonoBehaviour
         if (Timer <= 0.0f)
         {
             //Game Over!
+        }
+        else
+        {
+            StartCoroutine(UpdateTimer());
         }
     }
 
@@ -75,6 +82,15 @@ public class GameManager : MonoBehaviour
         }
 
         puzzleTrackingText.text = "Puzzles Solved: " + puzzlesCompleted + "/" + puzzlesToComplete;
+
+        StartCoroutine(UpdateTimer());
+    }
+
+    IEnumerator BackToMenu()
+    {
+        yield return new WaitForSeconds(10.0f);
+
+        gameObject.GetComponent<SceneChanger>().LoadScene(0);
     }
 
     private void PuzzleSolved(Puzzle puzzleCompleted)
@@ -86,7 +102,8 @@ public class GameManager : MonoBehaviour
 
         if (puzzlesCompleted >= puzzlesToComplete)
         {
-            Debug.Log("You win! Or something");
+            Destroy(endBlock);
+            StartCoroutine(BackToMenu());
         }
 
     }

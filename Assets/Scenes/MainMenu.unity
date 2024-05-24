@@ -306,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.3
+      value: 5.355811
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -314,23 +314,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.599
+      value: -9.54069
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -338,7 +338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -568,19 +568,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -588,7 +588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 91103217c1186ca46adcb8b9807fd76c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -795,19 +795,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 61157e2b8264ac647a52e22236baad21, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 61157e2b8264ac647a52e22236baad21, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 61157e2b8264ac647a52e22236baad21, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 61157e2b8264ac647a52e22236baad21, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 61157e2b8264ac647a52e22236baad21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -815,7 +815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 61157e2b8264ac647a52e22236baad21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85891381806055269, guid: 61157e2b8264ac647a52e22236baad21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2347,6 +2347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 773596514}
   - component: {fileID: 773596515}
+  - component: {fileID: 773596516}
   m_Layer: 0
   m_Name: Start Game Buton
   m_TagString: Untagged
@@ -2431,6 +2432,30 @@ MonoBehaviour:
           m_StringArgument: Loading...
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 773596516}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &773596516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773596513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ddf0232d45c114dbe439dafea661c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &919332372
 GameObject:
   m_ObjectHideFlags: 0
@@ -38668,8 +38693,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3235445714359920498, guid: 8aef77283f9a9154aa7c68924bde13c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235445714359920498, guid: 8aef77283f9a9154aa7c68924bde13c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235445714359920498, guid: 8aef77283f9a9154aa7c68924bde13c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235445714359920498, guid: 8aef77283f9a9154aa7c68924bde13c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SceneChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235445714359920498, guid: 8aef77283f9a9154aa7c68924bde13c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235445714359920498, guid: 8aef77283f9a9154aa7c68924bde13c0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Loading...
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235445714359920498, guid: 8aef77283f9a9154aa7c68924bde13c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4107243457196456324, guid: 8aef77283f9a9154aa7c68924bde13c0, type: 3}
       propertyPath: m_RootOrder

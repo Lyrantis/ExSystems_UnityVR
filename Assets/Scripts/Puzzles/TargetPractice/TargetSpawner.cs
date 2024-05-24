@@ -43,14 +43,14 @@ public class TargetSpawner : MonoBehaviour
                 temp = Instantiate(movingTarget, targetSpawns[randomIndex].transform.position, targetSpawns[randomIndex].transform.rotation, null);
                 if (randomIndex % 2 == 0)
                 {
-                    temp.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, -5.0f);
+                    temp.GetComponent<Rigidbody>().velocity = new Vector3(-5.0f, 0.0f, 0.0f);
                 }
                 else
                 {
-                    temp.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 5.0f);
+                    temp.GetComponent<Rigidbody>().velocity = new Vector3(5.0f, 0.0f, 0.0f);
                 }
 
-                temp.GetComponent<Target>().Init(Mathf.Abs(targetSpawns[randomIndex].transform.position.z - targetSpawns[randomIndex + 1].transform.position.z) / temp.GetComponent<Rigidbody>().velocity.magnitude);
+                temp.GetComponent<Target>().Init(Mathf.Abs(targetSpawns[randomIndex].transform.position.x - targetSpawns[randomIndex + 1].transform.position.x) / temp.GetComponent<Rigidbody>().velocity.magnitude);
 
 
             }
@@ -60,9 +60,9 @@ public class TargetSpawner : MonoBehaviour
                 {
                     randomIndex--;
                 }
-                float offset = UnityEngine.Random.Range(0.0f, targetSpawns[randomIndex].transform.position.z - targetSpawns[randomIndex + 1].transform.position.z);
+                float offset = UnityEngine.Random.Range(0.0f, targetSpawns[randomIndex].transform.position.x - targetSpawns[randomIndex + 1].transform.position.x);
                 Vector3 spawnPos = targetSpawns[randomIndex].transform.position;
-                spawnPos.z -= offset;
+                spawnPos.x -= offset;
                 temp = Instantiate(target, spawnPos, targetSpawns[randomIndex].transform.rotation, null);
             }
 
