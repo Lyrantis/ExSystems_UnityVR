@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 442934931716088938}
   - component: {fileID: 2960561717506701235}
   - component: {fileID: 1964337500370688436}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Stock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3737080823305588921}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SocketAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1119989843207329087}
   - component: {fileID: 3770710302186409979}
   - component: {fileID: -3184132227932916221}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: M4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2669231751854315917}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: AttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4775526233089972650}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 5167310889206190729}
   - component: {fileID: 8629480991431417365}
   - component: {fileID: 7217545139170190871}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Socket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 3241015665892137128}
   - component: {fileID: 2492346355073594070}
   - component: {fileID: 977501936778551388}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 7750688780200791900}
   - component: {fileID: 5443441091598822277}
   - component: {fileID: 432244937786408389}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: CharginHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 242418029083227049}
   - component: {fileID: 6868283358396735289}
   - component: {fileID: 2944053564476895942}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

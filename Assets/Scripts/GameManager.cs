@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -84,11 +85,17 @@ public class GameManager : MonoBehaviour
         puzzleTrackingText.text = "Puzzles Solved: " + puzzlesCompleted + "/" + puzzlesToComplete;
 
         StartCoroutine(UpdateTimer());
+
+        FindObjectOfType<Numpad>().OnSolved += StartEnd;
+    }
+    public void StartEnd()
+    {
+        BackToMenu();
     }
 
     IEnumerator BackToMenu()
     {
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(5.0f);
 
         gameObject.GetComponent<SceneChanger>().LoadScene(0);
     }
@@ -102,8 +109,7 @@ public class GameManager : MonoBehaviour
 
         if (puzzlesCompleted >= puzzlesToComplete)
         {
-            Destroy(endBlock);
-            StartCoroutine(BackToMenu());
+            //Combination Puzzle Unlocks
         }
 
     }

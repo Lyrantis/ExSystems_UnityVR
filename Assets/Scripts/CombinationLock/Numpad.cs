@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ public class Numpad : MonoBehaviour
 
     [SerializeField]
     TMP_Text guessDisplay;
+
+    [SerializeField]
+    GameObject endBlockage;
+
+    public event Action OnSolved;
 
     IEnumerator WaitToInit()
     {
@@ -35,16 +41,12 @@ public class Numpad : MonoBehaviour
             {
                 if (currentGuess == correctCombination)
                 {
-                    Debug.Log("You win!");
+                    Destroy(endBlockage);
+
                     solved = true;
                     guessDisplay.text = "OPEN";
-
-                    Puzzle puzzle = gameObject.GetComponent<Puzzle>();
-                    if (puzzle != null)
-                    {
-                        puzzle.OnPuzzleCompleted();
-                    }
-                    return;
+                    OnSolved?.Invoke();
+                    Destroy(this);
                 }
                 else
                 {
