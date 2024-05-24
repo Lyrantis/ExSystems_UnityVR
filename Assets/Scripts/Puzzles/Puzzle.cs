@@ -12,10 +12,10 @@ public class Puzzle : MonoBehaviour
     TMP_Text clue;
 
     private Color clueColour;
-    private int clueNum;
+    private char clueNum;
     public event Action<Puzzle> OnCompleted;
 
-    public void SetClueValues(Color inColour, int inNum)
+    public void SetClueValues(Color inColour, char inNum)
     {
         clueColour = inColour;
         clueNum = inNum;
@@ -27,7 +27,7 @@ public class Puzzle : MonoBehaviour
     {
         if (!isCompleted)
         {
-            clue.text = clueNum.ToString();
+            clue.text += clueNum;
             isCompleted = true;
             OnCompleted?.Invoke(this);
         }   

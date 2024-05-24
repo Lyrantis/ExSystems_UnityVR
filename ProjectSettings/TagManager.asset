@@ -12,6 +12,7 @@ TagManager:
   - Pipe
   - Target
   - Bar
+  - Fuze
   layers:
   - Default
   - TransparentFX
