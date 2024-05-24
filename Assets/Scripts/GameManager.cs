@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,14 @@ public class GameManager : MonoBehaviour
     private List<Puzzle> puzzles = new List<Puzzle>();
 
     public string endCombination;
+
+    [SerializeField]
+    public List<Material> colourMaterials = new List<Material>();
+    private List<Material> coloursUsed= new List<Material>();
+
+    private Color[] colours = { Color.red, Color.green, Color.blue, Color.magenta, Color.yellow, Color.black };
+
+    private int[] clueColours = new int[4];
 
     [SerializeField]
     TMP_Text puzzleTrackingText;
@@ -21,6 +30,22 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        endCombination = Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString();
+
+        for (int i = 0; i < 4; i++)
+        {
+            int randomColour = UnityEngine.Random.Range(0, colourMaterials.Count);
+
+            while (clueColours.Contains(randomColour))
+            {
+                randomColour = UnityEngine.Random.Range(0, colourMaterials.Count);
+            }
+            clueColours[i] = randomColour;
+            coloursUsed.Add(colourMaterials[randomColour]);
+        }
+
+        FindAnyObjectByType<ColourBrick>().SetColours(coloursUsed);
+
         Puzzle[] puzzlesInWorld = FindObjectsOfType<Puzzle>();
 
         foreach (Puzzle puzzle in puzzlesInWorld) 
@@ -29,7 +54,11 @@ public class GameManager : MonoBehaviour
             puzzle.OnCompleted += PuzzleSolved;
         }
         puzzlesToComplete = puzzles.Count;
-        endCombination = Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString() + Random.Range(0, 10).ToString();
+
+        for (int i = 0; i < 4; i++)
+        {
+            puzzles[i].SetClueValues(colours[clueColours[i]], endCombination[i]);
+        }
 
         puzzleTrackingText.text = "Puzzles Solved: " + puzzlesCompleted + "/" + puzzlesToComplete;
     }

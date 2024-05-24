@@ -5,6 +5,17 @@ using UnityEngine;
 public class SimplePadlock : MonoBehaviour
 {
     public int ID = 0;
+
+    [SerializeField]
+    GameObject objectToLock;
+
+    private void Start()
+    {
+        if (objectToLock != null)
+        {
+            objectToLock.GetComponent<Collider>().enabled = false;
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Key"))
@@ -21,6 +32,11 @@ public class SimplePadlock : MonoBehaviour
         if (keyUsed != null)
         {
             Destroy(keyUsed);
+        }
+
+        if (objectToLock != null)
+        {
+            objectToLock.GetComponent<Collider>().enabled = true;
         }
         Destroy(this.gameObject);
         Destroy(this);
