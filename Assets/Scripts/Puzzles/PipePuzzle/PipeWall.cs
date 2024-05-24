@@ -167,12 +167,14 @@ public class PipeWall : MonoBehaviour
                     {
                         if (x == y & y == 0)
                         {
-                            Instantiate(startPipe, puzzleStartCorner.transform.position, Quaternion.identity, null);
+                            GameObject spawned = Instantiate(startPipe, puzzleStartCorner.transform.position, Quaternion.identity, null);
+                            spawned.GetComponent<Pipe>().OnConnectionGained += CheckForPath;
                             continue;
                         }
                         else if (x == y & y == PuzzleHeight - 1)
                         {
                             endPipeInstance = Instantiate(endPipe, puzzleStartCorner.transform.position + new Vector3(-1.0f * 0.3f * x, -1.0f * 0.3f * y, 0.0f), Quaternion.identity, null).GetComponent<Pipe>();
+                            endPipeInstance.GetComponent<Pipe>().OnConnectionGained += CheckForPath;
                             continue;
                         }
                         GameObject temp = new GameObject();

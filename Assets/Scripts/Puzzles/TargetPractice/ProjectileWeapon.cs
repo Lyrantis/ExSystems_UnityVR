@@ -16,9 +16,11 @@ public class ProjectileWeapon : MonoBehaviour
 
     private bool canFire = true;
 
+    private bool isLoaded = false;
+
     public void OnTriggerPressed()
     {
-        if (canFire)
+        if (canFire & isLoaded)
         {
             Fire();
             GetComponent<AudioSource>().Play();
@@ -37,6 +39,11 @@ public class ProjectileWeapon : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenShots);
 
         canFire = true;
+    }
+
+    public void SetLoaded(bool loaded)
+    {
+        isLoaded = loaded;
     }
 
 }

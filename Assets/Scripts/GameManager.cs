@@ -21,12 +21,26 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     TMP_Text puzzleTrackingText;
 
+    [SerializeField]
+    private TMP_Text timeTrackingText;
+
     private int puzzlesToComplete;
     private int puzzlesCompleted;
 
     [SerializeField]
     public float Timer = 180.0f;
 
+    IEnumerator UpdateTimer()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Timer -= 1.0f;
+        timeTrackingText.text = "Time Remaining: " + Timer.ToString();
+
+        if (Timer <= 0.0f)
+        {
+            //Game Over!
+        }
+    }
 
     private void Start()
     {

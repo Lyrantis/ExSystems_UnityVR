@@ -76154,6 +76154,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 93a0d11ce57b4284e9e6943c079dbe6d, type: 2}
   - {fileID: 2100000, guid: 68fa6bd009999e7408201d4b85f1089a, type: 2}
   puzzleTrackingText: {fileID: 1675592990}
+  timeTrackingText: {fileID: 0}
   Timer: 300
 --- !u!4 &1238176912
 Transform:
